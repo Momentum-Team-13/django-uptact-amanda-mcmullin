@@ -20,6 +20,7 @@ class Contact(models.Model):
     birthday = models.DateField(null=True, blank=True)
     note = models.ForeignKey("Note", on_delete=models.CASCADE, related_name="notes_for_contact", null=True, blank=True)
 
+    
 
 class Note(models.Model):
     note = models.CharField(max_length=255, null=True, blank=True)
