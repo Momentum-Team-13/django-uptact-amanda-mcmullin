@@ -6,8 +6,7 @@ from .forms import ContactForm
 # Create your views here.
 def list_contacts(request):
     contacts = Contact.objects.all()
-    return render(request, "contacts/list_contacts.html",
-                  {"contacts": contacts})
+    return render(request, "contacts/list_contacts.html", {"contacts": contacts})
 
 
 def add_contact(request):
@@ -43,6 +42,8 @@ def delete_contact(request, pk):
     if request.method == 'POST':
         contact.delete()
         return redirect(to='list_contacts')
+    return render(request, "contacts/delete_contact.html", {"contact": contact})
 
-    return render(request, "contacts/delete_contact.html",
-                  {"contact": contact})
+def view_contact(request, pk):
+    contact = get_object_or_404(Contact, pk=pk)
+    return render(request, "contacts/view_contact.html", {"contact": contact})
