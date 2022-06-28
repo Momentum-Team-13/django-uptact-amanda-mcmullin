@@ -10,7 +10,6 @@
   <div class="w-33 pa3">
     <h2>{{ contact.name }}</h2>
 
-    <h3>{{ contact.birthday }}</h3>
 
     <div class="flex">
       <div class="pr2"><i class="icofont-location-pin"></i></div>
@@ -55,7 +54,7 @@
     <p>
       <a href="{% url 'edit_contact' pk=contact.pk %}">Edit Contact</a><br>
       <a class="red" href="{% url 'delete_contact' pk=contact.pk %}">Delete Contact</a>
-      <a href="{% url 'view_contact' pk=contact.pk %}"></a>
+      <a href="{% url 'view_contact' pk=contact.pk %}">View Contact</a>
     </p>
   </div>
   {% endfor %}
