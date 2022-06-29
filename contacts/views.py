@@ -50,8 +50,8 @@ def delete_contact(request, pk):
 
 
 def view_contact(request, pk):
-    notes = Note.objects.filter(contact = pk)
     contact = get_object_or_404(Contact, pk=pk)
+    notes = Note.objects.filter(contact = pk)
     return render(request, "contacts/view_contact.html", {"contact": contact, "notes": notes})
 
 
@@ -68,4 +68,3 @@ def add_note(request, pk):
             return redirect(to='view_contact', pk=pk)
 
     return render(request, "contacts/add_note.html", {"form": form, 'contact': contact})
-    
