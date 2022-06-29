@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>View Contact</h1>
+<h1>Contact</h1>
 <p><a href="{% url 'add_note' pk=contact.pk %}">Add New Note</a></p>
 
 <div class="flex flex-wrap">
   <div class="w-33 pa3">
     <h2>{{ contact.name }}</h2>
-
+    <h3></h3>
     <div class="flex">
       <div class="pr2"><i class="icofont-location-pin"></i></div>
       <div>
@@ -29,14 +29,14 @@
     {% if contact.email %}
     <div class="flex">
       <div class="pr2"><i class="icofont-ui-email"></i></div>
-      <div>{{ contact.email }}</div>
+      <div>{{ contact.email }}</div><br>
     </div>
     {% endif %}
 
     {% if contact.birthday %}
     <div class="flex">
       <div class="pr2"><i class="icofont-ui-email"></i></div>
-      <div>{{ contact.birthday }}</div>
+      <div>{{ contact.birthday }}</div><br>
     </div>
     {% endif %}
 
@@ -55,7 +55,7 @@
       <a class="red" href="{% url 'delete_contact' pk=contact.pk %}">Delete Contact</a><br>
       <a href="{% url 'list_contacts' %}">All contacts</a><br>
     </p>
-    
+
   </div>
 </div>
 {% endblock %}

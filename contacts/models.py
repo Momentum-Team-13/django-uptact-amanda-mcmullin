@@ -1,8 +1,7 @@
-
-
 from django.db import models
 from django.core.validators import RegexValidator
 from localflavor.us.models import USStateField, USZipCodeField
+from django.utils import timezone
 
 
 class Contact(models.Model):
@@ -27,4 +26,4 @@ class Contact(models.Model):
 class Note(models.Model):
     note= models.CharField(max_length=255, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    contact = models.ForeignKey(Contact, on_delete=models.CASCADE, related_name="notes_for_contact", null=True, blank=True)
+    contact = models.ForeignKey("Contact", on_delete=models.CASCADE, related_name="notes_for_contact", null=True, blank=True)
